@@ -1,0 +1,23 @@
+{
+  "name": "email-worker",
+  "version": "1.0.0",
+  "description": "Aqui está a sua documentação atualizada, com a seção de **Resiliência e DLQ** adicionada estrategicamente para detalhar a robustez do sistema, mantendo a formatação original.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "email",
+    "works",
+    "message",
+    "broker"
+  ],
+  "author": "Samuel Torres Fernandes (github:samueltorres-io)",
+  "license": "MIT",
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "handlebars": "^4.7.8",
+    "ioredis": "^5.8.2",
+    "nodemailer": "^7.0.11"
+  }
+}
