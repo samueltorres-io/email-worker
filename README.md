@@ -28,6 +28,8 @@ Não é a melhor opção para e-mails diversos (marketing massivo), mas atende p
 
 1.  **Gatilho (Spring Boot):** O usuário realiza uma ação (ex: Cadastro). O Spring Boot monta um objeto simples (DTO) contendo apenas os dados brutos (Nome, Link, Tipo do E-mail) e o serializa para JSON.
 
+![send data](./test/req.PNG)
+
 2.  **Fila (Redis):** O Spring envia esse JSON para uma lista no Redis (`queue:send-email`) usando o comando `LPUSH`. A operação leva milissegundos. O Spring volta a atender o usuário imediatamente.
 
 3.  **Consumidor (Node.js Worker):** Script leve rodando na instância auxiliar monitora a fila usando `BLPOP` (Bloqueio inteligente). Assim que o JSON chega, o Node captura.
@@ -35,6 +37,8 @@ Não é a melhor opção para e-mails diversos (marketing massivo), mas atende p
 4.  **Processamento (Node + Handlebars):** O script identifica qual template usar (ex: `welcome.hbs`), carrega o arquivo e substitui as variáveis pelos dados do JSON.
 
 5.  **Envio (AWS SES):** Node conecta no SMTP da Amazon e despacha o HTML finalizado.
+
+![customer receives email](./test/result-email.jpg)
 
 **NOTA:** - É interessante utilizar um *AWS Secret Manager* ou *Parameter Store* para as keys\!
 \- O Worker não cuida da validação dos dados, apenas formata e lança para o envio\!
