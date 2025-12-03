@@ -24,7 +24,7 @@ Não é a melhor opção para e-mails diversos (marketing massivo), mas atende p
 
 -----
 
-## Fluxo de Dados + Case Cyphra
+## Fluxo de Dados + Case
 
 1.  **Gatilho (Spring Boot):** O usuário realiza uma ação (ex: Cadastro). O Spring Boot monta um objeto simples (DTO) contendo apenas os dados brutos (Nome, Link, Tipo do E-mail) e o serializa para JSON.
 
