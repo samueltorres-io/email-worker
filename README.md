@@ -137,8 +137,10 @@ Uma única instância **AWS t4g.nano** (2 vCPU, 500MB RAM - \~$2.70/mês), conse
 
 2.  **Manutenção de Layouts:** Se você quiser mudar a cor do botão do e-mail ou corrigir um texto, você edita o arquivo `.hbs` na instância do worker. Não precisa recompilar nem redeployar o Backend Java.
 
-3.  **Elasticidade:** Se a aplicação/instâncias escalar para 10 máquinas, todas jogam mensagens no mesmo Redis. O Worker processa uma por uma na ordem de chegada.
+**NOTA:** Subir templates em S3 para permitir alterações sem travar/parar instancia worker.
 
-4.  **Custo:** Transformamos um recurso que já pagaria (Redis) em um sistema de mensageria completo com tolerância a falhas, economizando a criação de um RabbitMQ ou de mais máquinas Java.
+4.  **Elasticidade:** Se a aplicação/instâncias escalar para 10 máquinas, todas jogam mensagens no mesmo Redis. O Worker processa uma por uma na ordem de chegada.
+
+5.  **Custo:** Transformamos um recurso que já pagaria (Redis) em um sistema de mensageria completo com tolerância a falhas, economizando a criação de um RabbitMQ ou de mais máquinas Java.
 
 **NOTA:** Reforçando, apenas é interessante manter esse sistema, caso a demanda não seja tão elevada (Milhões de e-mails/dia)\! Essa aplicação evita gastos desnecessários com recursos overkills (RabbitMQ, etc...) e aproveita a mesma instância que gerenciamos os tokens de refresh para criar um message broker eficiente.
