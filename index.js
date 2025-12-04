@@ -1,3 +1,11 @@
+/*
+ * Melhorias:
+ *  (Timeout, SMTP error)
+ * Template não existe, JSON inválido == envia direto para DLQ!!!
+ * Migrar tenplates para S3
+ * FatalError class
+*/
+
 const Redis = require('ioredis');
 const nodemailer = require('nodemailer');
 const handlebars = require('handlebars');
